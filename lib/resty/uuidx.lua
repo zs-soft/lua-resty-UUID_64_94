@@ -126,7 +126,7 @@ function gen256hex(_uuidstr)
 end
 
 -- to prevent use of casual module global variables
-getmetatable(resty.uuid).__newindex = function (table, key, val)
+getmetatable(resty.uuidx).__newindex = function (table, key, val)
     error('attempt to write to undeclared variable "' .. key .. '": '
             .. debug.traceback())
 end
