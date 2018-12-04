@@ -6,22 +6,22 @@
 -- 生成8位UUID
 local uuidx = require "resty.uuidx" 
 
-local id =  resty_uuid:gen8()   --output 3uNy6ZzI
+local id =  uuidx:gen8()   --output 3uNy6ZzI
 
 
 -- 生成20为UUID
 local uuidx = require "resty.uuidx" 
 
-local id =  resty_uuid:gen20() -2qYArunu73bABy2RqY3M
+local id =  uuidx:gen20() -2qYArunu73bABy2RqY3M
 
 -- 生成64进制的uuid
 local uuidx = require "resty.uuidx" 
-local id =  resty_uuid:gen64() -2qYArunu73bABy2RqY3M'
+local id =  uuidx:gen64hex() -2qYArunu73bABy2RqY3M'
 
 -- 转换
 local uuidx = require "resty.uuidx" 
 local uuid_str = uuidx.uuid()
-local id =  resty_uuid:gen64(uuid_str) - 
+local id =  uuidx:gen128hex(uuid_str) - 
 
 ```	
 正如你所想，生成的UUID越长，理论冲突率就越小，请根据业务需要自行斟酌。
