@@ -9,7 +9,7 @@ TARGET_LIB := clib/libuuidx.so
 
 all:$(OBJS)
 	@echo $(OBJS)
-	$(LD) $(LDFLAGS) $(LIB) -o $(TARGET_LIB) $(OBJS) 
+	$(CC) $(LDFLAGS) $(LIB) -o $(TARGET_LIB) $(OBJS) 
 	@rm *.o -rf
 
 clib/%.o:clib/%.c
