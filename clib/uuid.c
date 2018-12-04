@@ -42,8 +42,7 @@ static char chars[] = {
     'U','V','W','X','Y','Z'
 };
 
-// static const unsigned uuid_128_size = 127;
-#define uuid_128_size           127
+static const unsigned uuid_128_size = 127;
 // hex 转 128 进制对应表
 static char DIGITS_128[uuid_128_size+1] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e
     , 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e
@@ -55,8 +54,7 @@ static char DIGITS_128[uuid_128_size+1] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0
     , 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7a, 0x7b, 0x7c, 0x7d, 0x7e
     , 0x7f};
 
-// static const unsigned uuid_256_size = 255;
-#define uuid_256_size           255
+static const unsigned uuid_256_size = 255;
 // hex 转 256 进制对应表
 static char DIGITS_256[uuid_256_size+1] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e
     , 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e
@@ -76,7 +74,7 @@ static char DIGITS_256[uuid_256_size+1] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0
     , 0xef, 0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, 0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe
     , 0xff};
 
-void uuid(char *result, int len)
+void uuid_by_len(char *result, int len)
 {
     unsigned char uuid[16];
     char output[24];
@@ -104,18 +102,23 @@ void uuid(char *result, int len)
     memcpy(result, output, len);
 }
 
+void uuid(char *result){
+    uuid_t uuid;
+    uuid_generate(uuid);
+    uuid_unparse(uuid, result);
+}
+
 void uuid8(char *result)
 {
-    uuid(result, 8);
+    uuid_by_len(result, 8);
     result[8] = '\0';
 }
 
 void uuid20(char *result)
 {
-    uuid(result, 20);
+    uuid_by_len(result, 20);
     result[20] = '\0';
 }
-
 
 
 void uuid64hex(char* uuidRes)
@@ -266,8 +269,12 @@ void uuid256hexbyuuid(char* uuidRes,char* uuid)
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    char* testuuid = "4384fde6-4e2a-59d4-b935-a9ea9c289b68";
-
+//    char buf[40] = {};
+//    uuid(buf);
+//    printf("%s\n",buf);
+    
+#if _TEST // define(_TEST)
+    const char* testuuid = "4384fde6-4e2a-59d4-b935-a9ea9c289b68";
     char bufres[32] = {0};
     uuid64hexbyuuid(bufres,testuuid);
     printf("len:%d, 64 %s len is %d\n",strlen(testuuid),bufres,strlen(bufres));
@@ -280,5 +287,7 @@ int main(int argc, const char * argv[]) {
 
     uuid256hexbyuuid(bufres,testuuid);
     printf("256 %s len is %d\n",bufres,strlen(bufres));
+#endif
     return 0;
 }
+
