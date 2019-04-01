@@ -123,7 +123,7 @@ void uuid20(char *result)
 
 void uuid64hex(char* uuidRes)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     
@@ -142,7 +142,7 @@ void uuid64hex(char* uuidRes)
 
 void uuid94hex(char* uuidRes)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     
@@ -160,7 +160,7 @@ void uuid94hex(char* uuidRes)
 
 void uuid128hex(char* uuidRes)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     
@@ -178,7 +178,7 @@ void uuid128hex(char* uuidRes)
 
 void uuid256hex(char* uuidRes)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     
@@ -195,7 +195,7 @@ void uuid256hex(char* uuidRes)
 
 void uuid64hexbyuuid(char* uuidRes,char* uuid)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     uuid_t uu;
@@ -215,7 +215,7 @@ void uuid64hexbyuuid(char* uuidRes,char* uuid)
 
 void uuid94hexbyuuid(char* uuidRes,char* uuid)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     uuid_t uu;
@@ -233,7 +233,7 @@ void uuid94hexbyuuid(char* uuidRes,char* uuid)
 
 void uuid128hexbyuuid(char* uuidRes,char* uuid)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     uuid_t uu;
@@ -251,7 +251,7 @@ void uuid128hexbyuuid(char* uuidRes,char* uuid)
 
 void uuid256hexbyuuid(char* uuidRes,char* uuid)
 {
-    unsigned __int128 uuid_num;
+    unsigned __int128 uuid_num=0;
     int strIndex = 0;
     int index = 0;
     
