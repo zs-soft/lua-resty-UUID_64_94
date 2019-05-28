@@ -22,6 +22,7 @@ clean:
 	rm clib/*.so clib/*.o -rf
 
 install:
-	cp clib/libuuidx.so $(INST_LIBDIR)
+	@echo $(shell pwd)
+	cp ./clib/libuuidx.so $(INST_LIBDIR)
 	cp -r lib/resty $(INST_LUADIR)
-	cp clib/libuuidx.so /usr/local/lib64
+	cp ./clib/libuuidx.so /usr/local/lib64
