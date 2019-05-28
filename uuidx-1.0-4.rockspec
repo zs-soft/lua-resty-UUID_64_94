@@ -1,5 +1,5 @@
 package = "uuidx"
-version = "1.0-3"
+version = "1.0-4"
 source = {
     url = "git://github.com/zs-soft/lua-resty-UUID_64_94.git",
     branch = "master"
@@ -14,7 +14,7 @@ dependencies = {
     "lua >= 5.1, < 5.4"
 }
 build = {
-    type = "builtin",
+    type = "make",
     modules = {
         libuuidx = {
             sources = {"clib/uuid.c"},
