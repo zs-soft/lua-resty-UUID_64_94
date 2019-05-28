@@ -24,3 +24,4 @@ clean:
 install:
 	cp clib/libuuidx.so $(INST_LIBDIR)
 	cp -r lib/resty $(INST_LUADIR)
+	cp clib/libuuidx.so /usr/local/lib64
