@@ -23,6 +23,7 @@ clean:
 
 install:
 	@echo $(shell pwd)
-	cp ./clib/libuuidx.so $(INST_LIBDIR)
+	@echo $(shell ls)
+	cp $(shell pwd)/clib/libuuidx.so $(INST_LIBDIR)
 	cp -r lib/resty $(INST_LUADIR)
-	cp ./clib/libuuidx.so /usr/local/lib64
+	cp $(shell pwd)/clib/libuuidx.so /usr/local/lib64
